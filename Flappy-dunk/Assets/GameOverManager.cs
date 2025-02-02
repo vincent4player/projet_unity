@@ -6,12 +6,13 @@ public class GameOverManager : MonoBehaviour
 {
     public GameObject gameOverPanel;    // Référence au panel Game Over
     public TMP_Text finalScoreText;    // Changé de Text à TMP_Text
+    public TMP_Text bestScoreText;    // Nouveau texte pour le meilleur score
     public ScoreManager scoreManager;    // Référence au ScoreManager
 
     void Start()
     {
-        if (finalScoreText == null)
-            Debug.LogError("FinalScoreText non assigné!");
+        if (finalScoreText == null || bestScoreText == null)
+            Debug.LogError("Textes non assignés!");
         if (scoreManager == null)
             Debug.LogError("ScoreManager non assigné!");
         
@@ -24,8 +25,19 @@ public class GameOverManager : MonoBehaviour
         if (finalScoreText != null && scoreManager != null)
         {
             int currentScore = scoreManager.GetScore();
-            Debug.Log("Score final : " + currentScore); // Pour déboguer
-            finalScoreText.text = "Score Final: " + currentScore;
+            
+            // Vérifie et met à jour le meilleur score
+            int bestScore = PlayerPrefs.GetInt("BestScore", 0);
+            if (currentScore > bestScore)
+            {
+                bestScore = currentScore;
+                PlayerPrefs.SetInt("BestScore", bestScore);
+                PlayerPrefs.Save();
+            }
+
+            // Affiche les scores
+            finalScoreText.text = $"Score Final: {currentScore}";
+            bestScoreText.text = $"Meilleur Score: {bestScore}";
         }
         else
         {
