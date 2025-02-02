@@ -1,9 +1,9 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    public Text scoreText; // Référence à l'affichage du score
+    public TMP_Text scoreText; // Changé de Text à TMP_Text
     private int score = 0;
 
     void Start()
@@ -15,6 +15,11 @@ public class ScoreManager : MonoBehaviour
     {
         score += points;
         UpdateScoreUI();
+    }
+
+    public int GetScore() // Nouvelle méthode pour accéder au score
+    {
+        return score;
     }
 
     void UpdateScoreUI()

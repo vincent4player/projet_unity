@@ -2,12 +2,14 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-    public float jumpForce = 6f; // Force du saut
+    public float jumpForce = 12f; // Force du saut plus élevée pour un saut rapide
+    public float gravity = 25f;   // Gravité personnalisée pour une chute plus naturelle
     private Rigidbody2D rb;       // Référence au Rigidbody2D du ballon
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Récupère le Rigidbody2D attaché à ce GameObject
+        rb.gravityScale = 0f; // Désactive la gravité Unity par défaut
     }
 
     void Update()
@@ -16,11 +18,14 @@ public class BallController : MonoBehaviour
         {
             Jump(); // Appelle la méthode Jump() lorsque l'on appuie sur Espace
         }
+
+        // Applique notre propre gravité
+        float velocityY = rb.linearVelocity.y - (gravity * Time.deltaTime);
+        rb.linearVelocity = new Vector2(rb.linearVelocity.x, velocityY);
     }
 
     void Jump()
     {
-        rb.linearVelocity = Vector2.zero; // Réinitialise la vitesse du ballon
-        rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse); // Applique une impulsion vers le haut
+        rb.linearVelocity = Vector2.up * jumpForce; // Saut instantané vers le haut
     }
 }

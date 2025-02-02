@@ -24,7 +24,7 @@
   - **Bouton image** : Une icône permettra de mettre le jeu en pause.
 
 ### 3. Événements aléatoires
-- Les cerceaux apparaîtront à des positions verticales aléatoires.
+- Les cerceaux apparaîtront à des positions horizontale aléatoires.
 - Les cerceaux pourront avoir des propriétés aléatoires (taille, mouvement).
 
 ### 4. Manipulation de prefabs
@@ -37,7 +37,7 @@
 ## 🎮 Gameplay
 
 - **Interaction unique** : Le joueur cliquera ou tapera pour faire sauter le ballon.
-- Si le ballon touche les cotés ou manque un cerceau, la partie se terminera.
+- Si le ballon manque un cerceau ou tombe la partie se terminera.
 - À chaque cerceau traversé, le score augmentera de 1 sauf si le ballon ne touche pas l'arceau il y aura un bonus multiplicateur 
 ---
 
