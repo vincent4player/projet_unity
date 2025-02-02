@@ -8,6 +8,7 @@ public class GameOverManager : MonoBehaviour
     public TMP_Text finalScoreText;    // Changé de Text à TMP_Text
     public TMP_Text bestScoreText;    // Nouveau texte pour le meilleur score
     public ScoreManager scoreManager;    // Référence au ScoreManager
+    private AudioManager audioManager;
 
     void Start()
     {
@@ -16,6 +17,7 @@ public class GameOverManager : MonoBehaviour
         if (scoreManager == null)
             Debug.LogError("ScoreManager non assigné!");
         
+        audioManager = FindObjectOfType<AudioManager>();
         gameOverPanel.SetActive(false);
         Time.timeScale = 1f;
     }
@@ -38,6 +40,13 @@ public class GameOverManager : MonoBehaviour
             // Affiche les scores
             finalScoreText.text = $"Score Final: {currentScore}";
             bestScoreText.text = $"Meilleur Score: {bestScore}";
+
+            // Joue le son de game over et arrête la musique
+            if (audioManager != null)
+            {
+                audioManager.StopMusic();
+                audioManager.PlayGameOverSound();
+            }
         }
         else
         {

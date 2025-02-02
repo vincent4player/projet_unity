@@ -16,6 +16,7 @@ public class BallController : MonoBehaviour
     private AnimationCurve normalCurve;
     private AnimationCurve perfectCurve;
     private bool isComboActive = false;
+    private AudioManager audioManager;
 
     void Start()
     {
@@ -40,6 +41,8 @@ public class BallController : MonoBehaviour
             trail.colorGradient = normalGradient;
             trail.enabled = false; // Désactive la traînée au démarrage
         }
+
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     void Update()
@@ -71,7 +74,11 @@ public class BallController : MonoBehaviour
 
     void Jump()
     {
-        rb.linearVelocity = Vector2.up * jumpForce; // Saut instantané vers le haut
+        rb.linearVelocity = Vector2.up * jumpForce;
+        if (audioManager != null)
+        {
+            audioManager.PlayJumpSound();
+        }
     }
 
     public void ActivatePerfectEffect()
@@ -84,6 +91,11 @@ public class BallController : MonoBehaviour
             trail.colorGradient = perfectGradient;
             trail.widthCurve = perfectCurve;
             StartCoroutine(ResetTrailEffect());
+
+            if (audioManager != null)
+            {
+                audioManager.PlayPerfectSound();
+            }
         }
     }
 
