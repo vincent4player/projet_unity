@@ -73,7 +73,7 @@
    - Le joueur contrôlera le ballon avec des clics/taps.
    - Les cerceaux seront générés dynamiquement.
 3. **Fin de partie** :
-   - Le score sera enregistré si c’est le meilleur.
+   - Le score sera enregistré si c'est le meilleur.
    - Le joueur sera redirigé vers le menu principal.
 
 ---
@@ -89,7 +89,7 @@
 
 1. Le dépôt devra être cloné :
    ```bash
-   git clone https://github.com/votre-utilisateur/flappy-dunk.git
+   git clone https://github.com/vincent4player/projet_unity.git
 
 2. Le projet devra être ouvert dans Unity.
 
@@ -106,3 +106,34 @@ Ce projet sera conçu pour intégrer des concepts essentiels en développement d
     ° Gestion des événements aléatoires.
     
     ° Mise en place d'interfaces utilisateur dynamiques.
+
+## 🎮 Comment jouer
+
+1. **Lancement du jeu :**
+   - Ouvrez le projet dans Unity (version 2022.3.19f1 ou supérieure)
+   - Ouvrez la scène principale dans `Assets/Scenes/SampleScene`
+   - Cliquez sur le bouton Play en haut de l'éditeur
+
+2. **Contrôles :**
+   - Appuyez sur ESPACE pour faire sauter la balle
+   - Timing et précision sont essentiels !
+
+3. **Système de score :**
+   - 1 point pour un passage normal
+   - 2 points pour un tir parfait (passage au centre)
+   - Les tirs parfaits consécutifs activent un multiplicateur de combo
+   - Une flamme apparaît pendant les combos !
+
+4. **Objectif :**
+   - Enchaînez les tirs parfaits pour maximiser votre score
+   - Battez votre meilleur score !
+   - Évitez de toucher les bords des cerceaux
+
+## 🛠️ Configuration requise
+- Unity 2022.3.19f1 ou version supérieure
+- Résolution minimale : 1920x1080
+
+## 🎵 Sons et effets
+- Musique de fond pendant le jeu
+- Effets sonores pour les sauts et tirs parfaits
+- Son spécial de game over

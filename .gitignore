@@ -14,7 +14,7 @@
 Assets/Unity.VisualScripting.Generated/
 Assets/Unity.VisualScripting.Generated.meta
 
-# Asset meta data should only be ignored when the corresponding asset is also ignored
+# Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
 
 # Visual Studio / MonoDevelop generated files
@@ -65,5 +65,6 @@ crashlytics-build.properties
 ._*
 .Spotlight-V100
 .Trashes
+Icon?
 ehthumbs.db
 Thumbs.db 

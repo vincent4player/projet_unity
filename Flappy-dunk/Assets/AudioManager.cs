@@ -21,7 +21,6 @@ public class AudioManager : MonoBehaviour
         musicSource = gameObject.AddComponent<AudioSource>();
         effectsSource = gameObject.AddComponent<AudioSource>();
 
-        // Configure la source de musique
         musicSource.clip = backgroundMusic;
         musicSource.volume = musicVolume;
         musicSource.loop = true;
